@@ -15,7 +15,7 @@ RUN go mod download
 
 COPY . ./
 
-CMD ["go", "run", "/project/cmd/example-api/."]
+CMD ["go", "run", "/project/cmd/api/."]
 
 # RUN CGO_ENABLED=0 GOOS=linux go install -v \
 #             -ldflags="-w -s -X github.com/cyberwo1f/go-example-api/pkg/version.Version=${VERSION}" \

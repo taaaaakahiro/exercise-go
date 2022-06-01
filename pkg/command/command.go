@@ -1,7 +1,9 @@
 package command
 
-import(
+import (
 	"fmt"
+	"os"
+	"context"
 )
 
 const (
@@ -10,5 +12,10 @@ const (
 )
 
 func Run() {
-	fmt.Println("check")
+	fmt.Println("start")
+	os.Exit(run(context.Background())) // 空のコンテキスト生成	
+}
+
+func run(ctx context.Context) int {
+	return
 }

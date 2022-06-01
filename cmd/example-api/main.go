@@ -1,9 +1,10 @@
 package main
 
 import (
-	"fmt"
+
+	"exercise-go-api/pkg/command"
 )
 
 func main() {
-	fmt.Println("hello")
+	command.Run()
 }

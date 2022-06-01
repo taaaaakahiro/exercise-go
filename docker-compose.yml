@@ -12,7 +12,7 @@ services:
   #     MONGO_INITDB_ROOT_PASSWORD: password
   #     MONGO_INITDB_DATABASE: example
   #     TZ: Asia/Tokyo
-  example-api:
+  api:
     build: .
     env_file:
       - .env

@@ -44,7 +44,7 @@ func run(ctx context.Context) int {
 	}
 
 	// init listener
-	listener, err := net.Listen("tcp", cfg.Address())
+	listener, err := net.Listen("tcp", cfg.Address()) //ポートを開く
 	if err != nil {
 		logger.Error("failed to listen port", zap.Int("port", cfg.Port), zap.Error(err))
 		return exitError
@@ -89,7 +89,8 @@ func run(ctx context.Context) int {
 	// }
 
 	// init to start http server
-	registry := handler.NewHandler(logger, repositories, version.Version)
+	// registry := handler.NewHandler(logger, repositories, version.Version)
+	registry := handler.NewHandler(logger)
 	httpServer := server.NewServer(registry, &server.Config{Log: logger})
 	wg, ctx := errgroup.WithContext(ctx)
 	wg.Go(func() error {

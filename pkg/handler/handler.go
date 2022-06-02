@@ -1,8 +1,8 @@
 package handler
 
 import (
-	"exercise-go-api/pkg/handler/v1"
-	"exercise-go-api/pkg/handler/version"
+	v1 "exercise-go-api/pkg/handler/v1"
+	// "exercise-go-api/pkg/handler/version"
 	"go.uber.org/zap"
 )
 
@@ -22,7 +22,7 @@ type Handler struct {
 
 func NewHandler(logger *zap.Logger) *Handler {
 	h := &Handler{
-		V1:      v1.NewHandler(logger.Named("v1"), repo),
+		V1:      v1.NewHandler(logger.Named("v1")),
 		// Version: version.NewHandler(logger.Named("version"), ver),
 	}
 

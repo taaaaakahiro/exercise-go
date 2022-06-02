@@ -13,12 +13,13 @@ import (
 	"exercise-go-api/pkg/config"
 	"exercise-go-api/pkg/server"
 	"exercise-go-api/pkg/handler"
+	"exercise-go-api/pkg/infrastracture/persistence"
 
 	"go.uber.org/zap"
 	"golang.org/x/sync/errgroup"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
-	"go.mongodb.org/mongo-driver/mongo/readpref"
+	// "go.mongodb.org/mongo-driver/mongo/readpref"
 )
 
 const (
@@ -61,9 +62,9 @@ func run(ctx context.Context) int {
 	// init mongo db
 	logger.Info("connect to mongo db", zap.String("url", cfg.DB.URL), zap.String("source", cfg.DB.Source))
 	opts := &options.ClientOptions{}
-	if cfg.DB.Source == "external" {
-		opts = options.Client().SetAuth(options.Credential{AuthMechanism: "MONGODB-AWS", AuthSource: "$external"})
-	}
+	// if cfg.DB.Source == "external" {
+	// 	opts = options.Client().SetAuth(options.Credential{AuthMechanism: "MONGODB-AWS", AuthSource: "$external"})
+	// }
 
 	mongoClient, err := mongo.NewClient(options.Client().ApplyURI(cfg.DB.URL), opts)
 	if err != nil {
@@ -79,10 +80,10 @@ func run(ctx context.Context) int {
 		return exitError
 	}
 
-	if err := mongoClient.Ping(mongoCtx, readpref.Primary()); err != nil {
-		logger.Error("failed to ping mongo db", zap.Error(err))
-		return exitError
-	}
+	// if err := mongoClient.Ping(mongoCtx, readpref.Primary()); err != nil {
+	// 	logger.Error("failed to ping mongo db", zap.Error(err))
+	// 	return exitError
+	// }
 	mongoDB := mongoClient.Database(cfg.DB.Database)
 
 	// get repositories
@@ -93,8 +94,8 @@ func run(ctx context.Context) int {
 	}
 
 	// init to start http server
-	// registry := handler.NewHandler(logger, repositories, version.Version)
-	registry := handler.NewHandler(logger)
+	registry := handler.NewHandler(logger, repositories, version.Version)
+	// registry := handler.NewHandler(logger)
 	httpServer := server.NewServer(registry, &server.Config{Log: logger})
 	wg, ctx := errgroup.WithContext(ctx)
 	wg.Go(func() error {

@@ -1,17 +1,17 @@
 version: '2'
 services:
-  # mongo:
-  #   image: mongo:5.0.3 # latest version for MongoDB Atlas
-  #   restart: always
-  #   ports:
-  #     - "27017:27017"
-  #   volumes:
-  #     - ./mock/mongo/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
-  #   environment:
-  #     MONGO_INITDB_ROOT_USERNAME: root
-  #     MONGO_INITDB_ROOT_PASSWORD: password
-  #     MONGO_INITDB_DATABASE: example
-  #     TZ: Asia/Tokyo
+  mongo:
+    image: mongo:5.0.3 # latest version for MongoDB Atlas
+    restart: always
+    ports:
+      - "27017:27017"
+    volumes:
+      - ./mock/mongo/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: password
+      MONGO_INITDB_DATABASE: example
+      TZ: Asia/Tokyo
   api:
     build: .
     env_file:
@@ -20,5 +20,5 @@ services:
       - "8080:8080"
     volumes:
       - ./:/project
-    # depends_on:
-    #   - mongo
+    depends_on:
+      - mongo

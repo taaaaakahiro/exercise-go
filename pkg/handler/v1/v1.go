@@ -16,10 +16,3 @@ func NewHandler(logger *zap.Logger, repositories *persistence.Repositories) *Han
 		repo:   repositories,
 	}
 }
-// // DBなし
-// func NewHandler(logger *zap.Logger) *Handler {
-// 	return &Handler{
-// 		logger: logger,
-// 		// repo:   repositories,
-// 	}
-// }

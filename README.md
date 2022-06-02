@@ -13,14 +13,16 @@
     https://qiita.com/leica19/items/56316148259d6b52d965  
  - 
 
- ## pkg
-- command     : init 
-- config      : 環境変数(.env)を読み込んだり
-- domain      :  
-- handler
-    - version    
-    - v1 ビジネスロジック？  
-- infrastracture
-    - persistence : query、handler/v1で使うクエリを記載  
-- server      :  
-- version     :  
+## pkg
+ - command     : init 
+ - config      : 環境変数(.env)を読み込み
+ - domain
+    - entity : テーブルの構造体を定義  
+    - repository : クエリのinterfaceを定義  
+ - handler  
+     - version  
+     - v1 ビジネスロジック？  
+ - infrastracture
+     - persistence : query、handler/v1で使うクエリを記載  
+ - server      :  
+ - version     :  

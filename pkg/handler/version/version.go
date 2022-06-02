@@ -8,7 +8,7 @@ import (
 
 type Handler struct {
 	logger *zap.Logger
-	// res    *response
+	res    *response
 }
 
 type response struct {

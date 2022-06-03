@@ -19,7 +19,7 @@ import (
 	"golang.org/x/sync/errgroup"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
-	// "go.mongodb.org/mongo-driver/mongo/readpref"
+	"go.mongodb.org/mongo-driver/mongo/readpref"
 )
 
 const (
@@ -79,11 +79,10 @@ func run(ctx context.Context) int {
 		logger.Error("failed to connect to mongo db", zap.Error(err))
 		return exitError
 	}
-
-	// if err := mongoClient.Ping(mongoCtx, readpref.Primary()); err != nil {
-	// 	logger.Error("failed to ping mongo db", zap.Error(err))
-	// 	return exitError
-	// }
+	if err := mongoClient.Ping(mongoCtx, readpref.Primary()); err != nil {
+		logger.Error("failed to ping mongo db", zap.Error(err))
+		return exitError
+	}
 	mongoDB := mongoClient.Database(cfg.DB.Database)
 
 	// get repositories

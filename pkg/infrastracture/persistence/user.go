@@ -2,7 +2,8 @@ package persistence
 
 import (
 	"context"
-	
+	"fmt"
+
 	"exercise-go-api/pkg/domain/entity"
 	"exercise-go-api/pkg/domain/repository"
 
@@ -45,10 +46,13 @@ func (r UserRepo) ListUsers(ctx context.Context) ([]entity.User, error) {
 		if err != nil {
 			return nil, err
 		}
-
 		users = append(users, user)
 	}
-
+	// 追加
+	var v entity.User
+	users = append(users, v)
+ 	fmt.Println(users)
+	 
 	err = cur.Close(ctx)
 	if err != nil {
 		return nil, err

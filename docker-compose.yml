@@ -2,6 +2,7 @@ version: '2'
 services:
   mongo:
     image: mongo:5.0.3 # latest version for MongoDB Atlas
+    container_name: mongo
     restart: always
     ports:
       - "27017:27017"

@@ -1,4 +1,4 @@
-## ライブラリ 
+## 参考
  - context  
     https://qiita.com/TsuyoshiUshio@github/items/34b63b663ffd56125c07  
  - zap  
@@ -11,18 +11,24 @@
     https://qiita.com/daisukeoda/items/bfda3858d6ebcc667bc7  
  - mongo-driver  
     https://qiita.com/leica19/items/56316148259d6b52d965  
- - 
+ - direnv  
+    https://golang.hateblo.jp/entry/golang-direnv  
+ - bson  
+    https://qiita.com/h6591/items/f3a7c1bca31cfa634cca  
+- os, bufio(json)
+    https://seven-901.hatenablog.com/entry/2021/07/24/105953
+    
 
 ## pkg
- - command     : init 
- - config      : 環境変数(.env)を読み込み
- - domain
-    - entity : テーブルの構造体を定義  
+ - command     : middleware接続、サーバー起動  
+ - config      : 環境変数(.env)を読み込むとか
+ - domain      : modelのような感じ？
+    - entity : データ(テーブル)の構造体を定義  
     - repository : クエリのinterfaceを定義  
- - handler  
+ - handler : ビジネスロジック(クエリ以外)  
      - version  
-     - v1 ビジネスロジック？  
- - infrastracture
-     - persistence : query、handler/v1で使うクエリを記載  
- - server      :  
+     - v1  
+ - infrastracture  
+     - persistence : handler内で使うクエリ  
+ - server      :  ルーティング、サーバーに関する関数(設定以外)  
  - version     :  

@@ -62,9 +62,10 @@ func run(ctx context.Context) int {
 	// init mongo db
 	logger.Info("connect to mongo db", zap.String("url", cfg.DB.URL), zap.String("source", cfg.DB.Source))
 	opts := &options.ClientOptions{}
-	// if cfg.DB.Source == "external" {
-	// 	opts = options.Client().SetAuth(options.Credential{AuthMechanism: "MONGODB-AWS", AuthSource: "$external"})
-	// }
+	//AWSのサービスと連携する場合　メリット：パスワードの管理が不要、AWSのIAMを使用できる
+	if cfg.DB.Source == "external" {
+		opts = options.Client().SetAuth(options.Credential{AuthMechanism: "MONGODB-AWS", AuthSource: "$external"})
+	}
 
 	mongoClient, err := mongo.NewClient(options.Client().ApplyURI(cfg.DB.URL), opts)
 	if err != nil {
@@ -94,7 +95,6 @@ func run(ctx context.Context) int {
 
 	// init to start http server
 	registry := handler.NewHandler(logger, repositories, version.Version)
-	// registry := handler.NewHandler(logger)
 	httpServer := server.NewServer(registry, &server.Config{Log: logger})
 	wg, ctx := errgroup.WithContext(ctx)
 	wg.Go(func() error {

@@ -1,6 +1,7 @@
 package v1
 
 import (
+	"fmt"
 	"context"
 	"encoding/json"
 	"go.uber.org/zap"
@@ -17,8 +18,8 @@ func (h *Handler) GetUsers() http.Handler {
 			h.logger.Error(msg, zap.Error(err))
 			return
 		}
-
 		b, err := json.Marshal(users)
+		fmt.Println(string(b), err)
 		if err != nil {
 			http.Error(w, err.Error(), http.StatusInternalServerError)
 			h.logger.Error("failed to marshal user", zap.Error(err))

@@ -7,6 +7,7 @@
     https://qiita.com/andromeda/items/c5195307cd08537d4fad  
  - errorgroup  
     https://zenn.dev/ikawaha/articles/20211218-f37638b56e5807  
+    https://blog.toshimaru.net/goroutine-with-waitgroup/  
  - os/signal, syscal  
     https://qiita.com/daisukeoda/items/bfda3858d6ebcc667bc7  
  - mongo-driver  
@@ -16,7 +17,15 @@
  - bson  
     https://qiita.com/h6591/items/f3a7c1bca31cfa634cca  
 - os, bufio(json)
-    https://seven-901.hatenablog.com/entry/2021/07/24/105953
+    https://seven-901.hatenablog.com/entry/2021/07/24/105953  
+- fmt  
+    https://leben.mobi/go/fmt-print-and-format/go-programming/  
+-  chnanel  
+    
+-  strings  
+    https://blog.web-apps.tech/string-processing-in-go/  
+-  
+-  
     
 
 ## pkg

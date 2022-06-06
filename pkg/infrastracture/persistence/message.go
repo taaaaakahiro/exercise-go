@@ -5,7 +5,7 @@ import (
 
 	"exercise-go-api/pkg/domain/entity"
 	"exercise-go-api/pkg/domain/repository"
-	
+
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/bson/primitive"
 	"go.mongodb.org/mongo-driver/mongo"
@@ -52,6 +52,15 @@ func (r MessageRepo) ListMessages(ctx context.Context, userId int) ([]entity.Mes
 
 		messages = append(messages, message)
 	}
+	data := `[
+		{"id": 1, "userId": 1, "message": "test message id 1"},
+		{"id": 2, "userId": 1, "message": "test message id 2"},
+		{"id": 3, "userId": 2, "message": "test message id 3"},
+		{"id": 4, "userId": 2, "message": "test message id 4"}
+	]`
+	fmt.Println(string(data[])) 
+
+	json.Marshal()
 
 	err = cur.Close(ctx)
 	if err != nil {

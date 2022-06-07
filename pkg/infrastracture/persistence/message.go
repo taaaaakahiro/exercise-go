@@ -2,6 +2,7 @@ package persistence
 
 import (
 	"context"
+	"fmt"
 
 	"exercise-go-api/pkg/domain/entity"
 	"exercise-go-api/pkg/domain/repository"
@@ -49,23 +50,31 @@ func (r MessageRepo) ListMessages(ctx context.Context, userId int) ([]entity.Mes
 		if err != nil {
 			return nil, err
 		}
-
 		messages = append(messages, message)
 	}
-	data := `[
-		{"id": 1, "userId": 1, "message": "test message id 1"},
-		{"id": 2, "userId": 1, "message": "test message id 2"},
-		{"id": 3, "userId": 2, "message": "test message id 3"},
-		{"id": 4, "userId": 2, "message": "test message id 4"}
-	]`
-	fmt.Println(string(data[])) 
-
-	json.Marshal()
-
+	// data := `[
+	// 	{"id": 1, "userId": 1, "message": "test message id 1"},
+	// 	{"id": 2, "userId": 1, "message": "test message id 2"},
+	// 	{"id": 3, "userId": 2, "message": "test message id 3"},
+	// 	{"id": 3, "userId": 2, "message": "test message id 3"},
+	// 	{"id": 4, "userId": 2, "message": "test message id 4"}
+	// ]`
+	// var str []entity.Message
+	// err = json.Unmarshal([]byte(data), &str)
+	// for _, res := range str {
+	// 	fmt.Println(res)
+	// 	fmt.Println(res.Id)
+	// 	fmt.Println(res.Message)
+	// }
+	if err != nil {
+		fmt.Println(err)
+		return nil, err
+	}
 	err = cur.Close(ctx)
 	if err != nil {
 		return nil, err
 	}
 
 	return messages, nil
+	// return str, nil
 }

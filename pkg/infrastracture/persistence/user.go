@@ -2,8 +2,8 @@ package persistence
 
 import (
 	"context"
-	"fmt"
-	"encoding/json"
+	// "fmt"
+	// "encoding/json"
 
 	"exercise-go-api/pkg/domain/entity"
 	"exercise-go-api/pkg/domain/repository"
@@ -51,17 +51,17 @@ func (r UserRepo) ListUsers(ctx context.Context) ([]entity.User, error) {
 	}
 
 	// json → Go
-	var usr entity.User
-	jsonString := `{"id":5, "userName":"test"}`
+	// var usr entity.User
+	// jsonString := `{"id":5, "userName":"test"}`
 
-	if err := json.Unmarshal([]byte(jsonString), &usr); err != nil {
-		fmt.Println(err)
-		return nil, err
-	}
-	fmt.Printf("%+v\n", usr)
-	users = append(users, usr)
+	// if err := json.Unmarshal([]byte(jsonString), &usr); err != nil {
+	// 	fmt.Println(err)
+	// 	return nil, err
+	// }
+	// fmt.Printf("%+v\n", usr)
+	// users = append(users, usr)
 
-	// Go → json 
+	// Go → json
 	// type userStruct struct {
 	// 	Id int `json: "id"`
 	// 	Name string `json: "name"`
@@ -73,8 +73,6 @@ func (r UserRepo) ListUsers(ctx context.Context) ([]entity.User, error) {
 	// }
 	// res, err := json.Marshal(resp)
 	// fmt.Println(string(res))
-
-	
 
 	err = cur.Close(ctx)
 	if err != nil {

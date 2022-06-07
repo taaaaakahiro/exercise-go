@@ -20,12 +20,3 @@ func NewHandler(logger *zap.Logger, repo *persistence.Repositories, ver string) 
 
 	return h
 }
-
-// // DB なし
-// func NewHandler(logger *zap.Logger) *Handler {
-// 	h := &Handler{
-// 		V1:      v1.NewHandler(logger.Named("v1")),
-// 	}
-
-// 	return h
-// }

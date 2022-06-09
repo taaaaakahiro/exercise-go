@@ -24,7 +24,8 @@
     https://blog.web-apps.tech/string-processing-in-go/  
 - io/ioutil   
    https://future-architect.github.io/articles/20210210/  
--  
+-  assert  
+   https://dev.classmethod.jp/articles/go-testify/  
 ## test  
    https://future-architect.github.io/articles/20200601/
 

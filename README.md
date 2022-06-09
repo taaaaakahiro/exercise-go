@@ -20,10 +20,10 @@
     https://seven-901.hatenablog.com/entry/2021/07/24/105953  
 - fmt  
     https://leben.mobi/go/fmt-print-and-format/go-programming/  
--  strings  
+- strings  
     https://blog.web-apps.tech/string-processing-in-go/  
--  io/ioutil   
-   
+- io/ioutil   
+   https://future-architect.github.io/articles/20210210/  
 -  
 ## test  
    https://future-architect.github.io/articles/20200601/

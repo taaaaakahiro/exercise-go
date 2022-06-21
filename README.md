@@ -16,7 +16,7 @@
     https://golang.hateblo.jp/entry/golang-direnv  
  - bson  
     https://qiita.com/h6591/items/f3a7c1bca31cfa634cca  
-- os, bufio(json)
+- os, bufio(json)  
     https://seven-901.hatenablog.com/entry/2021/07/24/105953  
 - fmt  
     https://leben.mobi/go/fmt-print-and-format/go-programming/  
@@ -27,7 +27,7 @@
 -  assert  
    https://dev.classmethod.jp/articles/go-testify/  
 ## test  
-   https://future-architect.github.io/articles/20200601/
+   https://future-architect.github.io/articles/20200601/  
 
     
 
@@ -55,7 +55,7 @@
    db.createCollection("hoge")                             // create new collection  
    db.user.find()                                          // select all
    db.user.find({id: 2})                                   // select where
-   db.user.count()                                         // count records
+   db.user.count()                                         // the number of records  
    db.user.insert({id: 3, name: "Test"})                   // add new row
    db.user.remove({name: "Test"})                          // delete row
    db.user.update({name: "Test"},{$set:{name:"AAAAAAAA"}}) // update row 

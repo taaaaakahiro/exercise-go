@@ -44,3 +44,20 @@
      - persistence : handler内で使うクエリ  
  - server      :  ルーティング、サーバーに関する関数(設定以外)  
  - version     :  
+
+ ## MongoDB
+ ```login & check tables
+   docker-compose exec mongo sh                            // enter monogo container  
+   mongo -u root -p                                        // input password  
+   show dbs                                                // display databases  
+   use exmple                                              // switched to example  
+   show collections                                        // display collections  
+   db.createCollection("hoge")                             // create new collection  
+   db.user.find()                                          // select all
+   db.user.find({id: 2})                                   // select where
+   db.user.count()                                         // count records
+   db.user.insert({id: 3, name: "Test"})                   // add new row
+   db.user.remove({name: "Test"})                          // delete row
+   db.user.update({name: "Test"},{$set:{name:"AAAAAAAA"}}) // update row 
+
+ ```
